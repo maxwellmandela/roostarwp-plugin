@@ -1,0 +1,7 @@
+{
+    "require": {
+        "tectalic/openai": "^1.4",
+        "guzzlehttp/guzzle": "^7.6",
+        "pusher/pusher-php-server": "^7.2"
+    }
+}

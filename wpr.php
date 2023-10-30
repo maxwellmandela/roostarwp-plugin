@@ -1,0 +1,90 @@
+<?php
+
+/**
+ * The plugin bootstrap file
+ *
+ * This file is read by WordPress to generate the plugin information in the plugin
+ * admin area. This file also includes all of the dependencies used by the plugin,
+ * registers the activation and deactivation functions, and defines a function
+ * that starts the plugin.
+ *
+ * @link              https://roostarapp.com
+ * @since             1.0.0
+ * @package           WRP
+ *
+ * @wordpress-plugin
+ * Plugin Name:       Roostar WP
+ * Plugin URI:        https://roostarapp.com
+ * Description:       GPT-powered live chat plugin for your wordpress site. It can be custom trained from your posts(custom too), or entire post categories and works very well with WooCommerce as well.
+ * Version:           1.0.0
+ * Author:            Maxwell Mandela
+ * Author URI:        https://github.com/maxwellmandela
+ * License:           GPL-2.0+
+ * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
+ * Text Domain:       wpr
+ * Domain Path:       /languages
+ */
+
+// If this file is called directly, abort.
+if (!defined('WPINC')) {
+	die;
+}
+
+/**
+ * Currently plugin version.
+ * Start at version 1.0.0 and use SemVer - https://semver.org
+ * Rename this for your plugin and update it as you release new versions.
+ */
+define('WPR_VERSION', '1.0.0');
+
+require_once plugin_dir_path(__FILE__) . 'freemius.php';
+
+
+/**
+ * The code that runs during plugin activation.
+ * This action is documented in includes/class-wpr-activator.php
+ */
+function activate_wpr()
+{
+	require_once plugin_dir_path(__FILE__) . 'includes/class-wpr-activator.php';
+	WRP_Activator::activate();
+}
+
+/**
+ * The code that runs during plugin deactivation.
+ * This action is documented in includes/class-wpr-deactivator.php
+ */
+// function deactivate_wpr()
+// {
+// 	require_once plugin_dir_path(__FILE__) . 'includes/class-wpr-deactivator.php';
+// 	WRP_Deactivator::deactivate();
+// }
+
+// register_activation_hook(__FILE__, 'activate_wpr');
+// register_deactivation_hook(__FILE__, 'deactivate_wpr');
+
+rw_fs()->add_action('after_uninstall', 'rw_fs_uninstall_cleanup');
+
+/**
+ * The core plugin class that is used to define internationalization,
+ * admin-specific hooks, and public-facing site hooks.
+ */
+require plugin_dir_path(__FILE__) . 'includes/class-wpr.php';
+
+/**
+ * Begins execution of the plugin.
+ *
+ * Since everything within the plugin is registered via hooks,
+ * then kicking off the plugin from this point in the file does
+ * not affect the page life cycle.
+ *
+ * @since    1.0.0
+ */
+function run_wpr()
+{
+
+	$plugin = new WRP();
+	$plugin->run();
+}
+
+run_wpr();

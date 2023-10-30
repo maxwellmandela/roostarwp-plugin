@@ -1,0 +1,182 @@
+/**
+ * All of the CSS for your public-facing functionality should be
+ * included in this file.
+ */
+.wrp-container{
+	height: calc(100% - 70px);
+	font-family: 'Alef', sans-serif;
+	font-size: 16px;
+	line-height: 1.5em;
+	overflow: auto;
+	color : #000;
+	width: 90%;
+	margin: auto;
+	height: 45vh;
+	padding-right: 13px;
+}
+
+
+.wrp-chat-widget {
+    z-index: 9999 !important;
+}
+
+.wrp-chat-widget-header.show {
+	background: #182165;
+	border-top-right-radius: 5px;
+	border-top-left-radius: 5px;
+}
+
+.wrp-chat-widget-header.hidden {
+	background: transparent;
+}
+
+.wrp-chat-widget-header {
+	height: 45px;
+	padding-top: 10px;
+	padding-right: 25px;
+}
+
+.wrp-chat-view.hidden{
+    display: none;
+}
+
+.wrp-chat-view.show{
+    display:block;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+	background: #e1e1e1;
+}
+
+.wrp-chat-bubble {
+	display: flex;
+}
+
+.wrp-chat-bubble.me {
+	justify-content: end;
+}
+	
+.wrp-chat-bubble.me p {
+	background: #393a3e;
+	color: #efecec;
+	padding: 10px;
+	border-top-right-radius: 15px;
+	border-top-left-radius: 15px;
+	border-bottom-left-radius: 15px;
+}
+
+.wrp-chat-bubble.other p {
+	background: rgb(237, 239, 245);
+	color: #343030;
+	padding: 10px;
+	border-bottom-right-radius: 15px;
+	border-bottom-left-radius: 15px;
+	border-top-right-radius: 15px;
+}
+
+.wrp-toggle-chat {
+    float: right;
+    background: #363682;
+    padding: 10px;
+    border-radius: 20px;
+    color: #fdfdfd;
+    cursor: pointer;
+    border: none;
+    margin-bottom: 15px;
+}
+
+.wrp-chat-widget {
+    width: 400px;
+    position: fixed;
+    right: 10px;
+    bottom: 10px;
+}
+
+
+.message {	
+	padding: 10px;
+	text-align: left;
+	opacity: 0;
+}
+.message:after,.message:before{
+	content: '';
+	clear: both;
+}
+.me {
+	text-align: right;
+}
+.content {
+	text-align: left;
+	max-width: 90%;
+	border-radius: 20px;
+	padding: 20px;
+	display: inline-block;
+	position: relative;
+	-webkit-box-shadow: 1px 1px 2px 0px rgba(170,170,170,1);
+	-moz-box-shadow: 1px 1px 2px 0px rgba(170,170,170,1);
+	box-shadow: 1px 1px 2px 0px rgba(170,170,170,1);
+	word-wrap: break-word;
+}
+.content:before{
+	content: '';
+	border-top : 10px solid transparent;
+	border-bottom : 10px solid transparent;
+	border-right : 20px solid #E3E4E9;
+	border-left: none;
+	position: absolute;
+	left: -20px;
+	top : calc(50% - 10px);
+}
+.info{
+	padding: 5px;
+	color : #666;
+}
+.me .content{
+	background-color : #4a85dd;
+	color : #fff;	
+}
+.me .content:before{
+	border-top : 10px solid transparent;
+	border-bottom : 10px solid transparent;
+	border-left : 20px solid #4a85dd;
+	border-right : none;
+	left: 100%;
+}
+.tool-menu{
+	border: 1px solid #e2e2e2;
+	padding: 10px;
+	position : relative;
+	vertical-align: top;
+	background-color: white;
+}
+.tool-menu .chat,.tool-menu .send{
+	border : 1px solid #aaa;
+	background : none;
+	height: 35px;	
+	padding: 5px 10px;
+	font-size: 16px;
+	display: inline-block;
+}
+.tool-menu *:focus{
+	outline: none;
+}
+.tool-menu .chat{
+	margin: 0 20px;
+	width: calc(100% - 180px);
+	border-radius : 20px;
+	transition : border-radius 0.2s linear;
+}
+.tool-menu .chat:focus{
+	border-radius : 5px;
+}
+.tool-menu .button{
+	background-color: #a3d063;
+	border: 2px solid #a3d063;
+	color: #000;
+	cursor: pointer;
+	transition: all 0.2s, background-color 0.2s, border-radius 0.2s linear;
+	border-radius: 20px;	
+}
+.tool-menu .button:hover,.tool-menu .button:active,.tool-menu .button.active{
+	background-color: #fff;	
+	border-radius: 5px;	
+}
